@@ -13,11 +13,11 @@
 	$partOfDay = "";
 	
 	if ($hourNow < 8)(
-		$partOfDay = "Varane hommik.";
-		)
+		$partOfDay = "Varane hommik."
+		);
 	if ($hourNow >= 8)(
-		$partOfDay = "koolipäev";
-		)
+		$partOfDay = "koolipäev"
+		);
 		
 		
 ?>
@@ -38,12 +38,12 @@
 		echo "<p>Täna on ";
 		echo date("d.m.Y");
 		echo ".</p>";
-		echo "Lehe laadimise hetkel oli kell: " .date("H:i:s") ."</php>";
+		echo "Lehe laadimise hetkel oli kell: " .date("H:i:s") .". </php>";
 		echo "Praegu on " .$partOfDay .".";
 	?>
 	<p>PHP käivitatakse lehe laadimisel ja siis tehakse kogu töö ära. Hiljem, kui vaja midagi jälle "kalkuleerida", siis laetakse kogu leht uuesti.</p>
 	<?php
-		echo "<p>Leheautori täisnimi on: " .$myName ." " .$myFamilyName ."."</p>;
+		echo "<p>Leheautori täisnimi on: " .$myName ." " .$myFamilyName .".</p>";
 	?>
 </body>
 </html>
