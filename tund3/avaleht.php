@@ -2,12 +2,13 @@
 	//Muutujad
 	$myName = "Rain";
 	$myFamilyName = "Meikar";
+	$myAge = 0;
+	$myBirthYear;
 	$monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", 
 	"august", "september", "oktoober", "november", "detsember"];
-	var_dump($monthNameEt);
-	echo $monthNamesEt[8]
 	$hourNow = date("H");
 	$partOfDay = "";
+	$myLivedYearsList = "";
 	
 	if ($hourNow < 8)(
 		$partOfDay = "Varane hommik."
@@ -19,7 +20,17 @@
 		$partOfDay = "vaba aeg"
 		);
 		
-		
+		//nüüd vaatame, kas ja mida kasutaja sisestas
+	if (isset($_POST["yearBirth"])){
+		$myAge = date("Y") - $_POST["yearBirth"];
+		$myBirthYear = $_POST["yearBirth"];
+		//tekitame loendi kõigist elatud aastatest
+		for ($i = $myBirthYear; $i <= date("Y"); $i++){
+			echo $i;
+			$myLivedYearsList .= "<li>" .$i ."</li> \n";
+		}
+		$myLivedYearsList .= "</ol> \n";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +47,8 @@
 	<?php
 		echo "<p>Täna on vastik ilm!</p>";
 		echo "<p>Täna on ";
-		echo date("d.m.Y");
+		$monthIndex = date("n") - 1;
+		echo date("d.") .$monthNamesEt[$monthIndex] .date(" Y");
 		echo ".</p>";
 		echo "Lehe laadimise hetkel oli kell: " .date("H:i:s") .". </php>";
 		echo "Praegu on " .$partOfDay .".";
@@ -45,5 +57,20 @@
 	<?php
 		echo "<p>Leheautori täisnimi on: " .$myName ." " .$myFamilyName .".</p>";
 	?>
+	<h2>Vanus</h2>
+	<p>Järgnevalt palume sisestada oma sünniaasta!</p>
+	<form method="POST">
+		<label>Teie sünniaasta: </label>
+		<input id="yearBirth" name="yearBirth" type="number" min="1900" max="2017" value="<?php echo $myYearBirth; ?> aastat.</p>
+		<input id="submitYearBirth" name="submitYearBirth" type="submit" value="Kinnita">
+	
+	</form>
+	<p>Teie vanus on <?php echo $myAge; ?> aastat.</p>
+	<?php
+		if ($myLivedYearsList != "") {
+			echo "<h3>Oled elanus järgnevatel aastatel</h3> \n";
+			echo $myLivedYearslist;
+		}}
+		?>
 </body>
 </html>
