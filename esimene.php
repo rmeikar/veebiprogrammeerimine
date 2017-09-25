@@ -5,7 +5,7 @@
 	$monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", 
 	"august", "september", "oktoober", "november", "detsember"];
 	var_dump($monthNameEt);
-	echo $monthNamesEt[8]
+	echo $monthNamesEt[8];
 	$hourNow = date("H");
 	$partOfDay = "";
 	
